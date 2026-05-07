@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+	    
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+    
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <title><data:blog.title/></title>
+    
+    <b:skin><![CDATA[
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-green: #2e7d32;
+            --accent-orange: #ffa500;
+            --bg-light: #f4f7f6;
+            --text-dark: #333;
+            --card-bg: #ffffff;
+            --footer-bg: #111111;
+        }
+
+        body.dark-mode {
+            --bg-light: #121212;
+            --text-dark: #e0e0e0;
+            --card-bg: #1e1e1e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .logo { font-weight: 700; font-size: 1.5rem; color: #fff; text-decoration: none; }
+        .logo span { color: var(--accent-orange); }
+        nav { display: flex; gap: 20px; }
+        nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+        nav a:hover { color: var(--accent-orange); }
+        .header-right { display: flex; align-items: center; gap: 15px; }
+        .dark-mode-toggle { cursor: pointer; background: rgba(255,255,255,0.2); border: none; color: #fff; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; }
+
+        /* --- Hero --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+        .hero h2 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 25px; max-width: 600px; }
+        .hero .btn { background: var(--accent-orange); color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 30px; font-weight: 600; }
+        
+        /* --- Why Choose Us --- */
+        .features-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-item {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .feature-item h3 { color: var(--primary-green); margin: 15px 0; }
+
+        /* --- Menu Grid --- */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .food-card { background: var(--card-bg); border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .food-img { width: 100%; height: 200px; object-fit: cover; }
+        .food-content { padding: 20px; }
+        .food-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+        .food-price { color: var(--primary-green); font-weight: 700; margin-bottom: 15px; }
+        .qty-controls { display: flex; justify-content: space-between; align-items: center; background: #f0f0f0; padding: 5px; border-radius: 8px; }
+        body.dark-mode .qty-controls { background: #333; }
+        .qty-btn { background: var(--primary-green); color: white; border: none; width: 30px; height: 30px; border-radius: 5px; cursor: pointer; }
+
+        /* --- Order Panel --- */
+        .order-panel { background: var(--card-bg); padding: 30px; border-radius: 15px; margin-top: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0 20px; border: 1px solid #ddd; border-radius: 8px; background: var(--card-bg); color: var(--text-dark); }
+        .whatsapp-btn, .submit-btn { background: #25D366; color: white; border: none; width: 100%; padding: 15px; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; }
+        .submit-btn { background: var(--primary-green); }
+        
+                /* --- FAQ Section --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 60px auto 20px;
+            padding: 0 20px;
+        }
+
+        .faq-heading {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--text-dark);
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            list-style: none; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        /* Hide the default HTML arrow */
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Custom Plus/Minus Icon */
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] .faq-question::after {
+            content: '-';
+            transform: rotate(180deg);
+            color: var(--accent-orange);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            line-height: 1.6;
+            color: #666;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: -5px;
+            padding-top: 15px;
+        }
+
+        body.dark-mode .faq-answer {
+            color: #bbb;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- Footer --- */
+        footer { background: var(--footer-bg); color: #bbb; padding: 50px 5% 20px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #bbb; text-decoration: none; font-size: 0.9rem; cursor: pointer; }
+        .footer-col ul li a:hover { color: var(--accent-orange); }
+        .footer-bottom { text-align: center; border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; }
+
+        /* --- Modals --- */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background-color: var(--card-bg); color: var(--text-dark); margin: auto; padding: 30px; border-radius: 15px; max-width: 600px; width: 100%; position: relative; max-height: 80vh; overflow-y: auto; }
+        .close-btn { color: var(--text-dark); position: absolute; top: 15px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; }
+
+        /* --- Responsive Footer Logic --- */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h2 { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 15px; }
+            .footer-col:nth-child(1), .footer-col:nth-child(4) { grid-column: span 2; }
+        }
+    ]]></b:skin>
+</head>
+
+<body>
+    <header>
+        <div class='header-left'>
+            <a class='logo' href='/'><i aria-hidden='true' class='fa fa-cutlery'/> AL<span>BARKA</span></a>
+            <nav>
+                <a href='#menu'>Menu</a>
+                <a href='#order'>Order Now</a>
+                <a href='javascript:void(0)' onclick='openModal(&apos;offers-modal&apos;)'>Offers</a>
+            </nav>
+        </div>
+        <div class='header-right'>
+            <button class='dark-mode-toggle' onclick='toggleDarkMode()'><i aria-hidden='true' class='fa fa-toggle-on'/> Mode</button>
+        </div>
+    </header>
+
+    <section class='hero'>
+        <h2>ALBARKA RESTAURANT</h2>
+        <p>Authentic flavors delivered straight from our kitchen to your doorstep. Simple, fresh, and delicious.</p>
+        <a class='btn' href='#menu'>Explore Menu</a>
+    </section>
+
+    <div class='container' id='menu'>
+        <h2 style='margin-bottom: 30px; text-align: center;'>Our Recommended Menu</h2>
+        <div class='menu-grid' id='food-container'>
+            </div>
+
+        <div class='order-panel' id='order'>
+            <h3>Place Your Order</h3>
+            <div style='display: grid; grid-template-columns: 1fr 1fr; gap: 20px;'>
+                <div>
+                    <label>Your Name</label>
+                    <input id='cust-name' placeholder='John Iliya' type='text'/>
+                </div>
+                <div>
+                    <label>Dining Mode</label>
+                    <select id='mode' onchange='updateTotal()'>
+                        <option value='pickup'>Pick Up</option>
+                        <option value='delivery'>Home Delivery (+&#8358;1,000)</option>
+                    </select>
+                </div>
+            </div>
+            <div id='address-div' style='display: none;'>
+                <label>Delivery Address</label>
+                <input id='cust-address' placeholder='123 Street, City' type='text'/>
+            </div>
+            <div style='text-align: right; margin-bottom: 20px;'>
+                <h3>Total: &#8358;<span id='grand-total'>0</span></h3>
+            </div>
+            <button class='whatsapp-btn' onclick='sendOrder()'>Send Order via WhatsApp</button>
+        </div>
+    </div>
+    
+        <section class='features-section'>
+        <h2 style='color:var(--primary-green)'>WHY CHOOSE US</h2>
+        <div class='features-grid'>
+            <div class='feature-item'>
+                <span style='font-size: 3rem;'><i class="fa fa-truck" aria-hidden="true"></i></span>
+                <h3>Fast Delivery</h3>
+                <p>We ensure your food arrives steaming hot within 30-45 minutes of ordering.</p>
+            </div>
+            <div class='feature-item'>
+                <span style='font-size: 3rem;'><i class="fa fa-leaf" aria-hidden="true"></i></span>
+                <h3>Fresh Ingredients</h3>
+                <p>We source all our ingredients daily from local organic farmers for the best taste.</p>
+            </div>
+            <div class='feature-item'>
+                <span style='font-size: 3rem;'><i class="fa fa-diamond" aria-hidden="true"></i></span>
+                <h3>Premium Quality</h3>
+                <p>High hygiene standards and world-class chefs preparing your favorite local dishes.</p>
+            </div>
+        </div>
+    </section>
+    
+        <div class="faq-container" id="faq">
+        <h2 class="faq-heading">Frequently Asked Questions</h2>
+        
+        <details class="faq-item">
+            <summary class="faq-question">What are your delivery hours?</summary>
+            <div class="faq-answer">
+                We deliver fresh food every day from 8:00 AM to 10:00 PM. Any orders placed after 9:30 PM will be scheduled for delivery the following morning.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">How long does delivery usually take?</summary>
+            <div class="faq-answer">
+                Standard delivery takes between 30 to 45 minutes depending on your exact location and current traffic conditions. We always strive to get your food to you while it's hot!
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">Can I change or cancel my order?</summary>
+            <div class="faq-answer">
+                Yes, but please be quick! You can modify or cancel your order by sending us a message on WhatsApp within 5 minutes of placing it. Once the kitchen starts preparing your meal, we cannot accept cancellations.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">Do you offer bulk orders for events?</summary>
+            <div class="faq-answer">
+                Absolutely! We cater to birthdays, office parties, and family gatherings. Please send us a WhatsApp message at least 24 hours in advance to discuss your menu and get a special discount.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">How do I pay for my food?</summary>
+            <div class="faq-answer">
+                You can pay via Bank Transfer to our official account before delivery, or you can pay via POS/Cash when our delivery rider arrives at your doorstep.
+            </div>
+        </details>
+    </div>
+
+    <footer>
+        <div class='footer-grid'>
+            <div class='footer-col'>
+            	<a class='logo' href='/'><i aria-hidden='true' class='fa fa-cutlery'/> AL<span>BARKA</span></a>
+                <p>Albarka is dedicated to bringing you the finest culinary experiences with a touch of home-made love.</p>
+            </div>
+            <div class='footer-col'>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a onclick='openModal(&apos;story-modal&apos;)'>Our Story</a></li>
+                    <li><a onclick='openModal(&apos;chef-modal&apos;)'>Chef&#39;s Specials</a></li>
+                    <li><a onclick='openModal(&apos;career-modal&apos;)'>Careers</a></li>
+                </ul>
+            </div>
+            <div class='footer-col'>
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a onclick='openModal(&apos;contact-modal&apos;)'>Contact Us</a></li>
+                    <li><a onclick='openModal(&apos;refund-modal&apos;)'>Refund Policy</a></li>
+                    <li><a onclick='openModal(&apos;privacy-modal&apos;)'>Privacy Policy</a></li>
+                    <li><a onclick='openModal(&apos;terms-modal&apos;)'>Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class='footer-col'>
+                <h4>Contact</h4>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> No. 14 Kofar Jatau by Fanwanki Road, Zaria city<br/><i class="fa fa-phone" aria-hidden="true"></i> +234 806 286 0423<br/><i class="fa fa-envelope" aria-hidden="true"></i> hello@albarka.com.ng</p>
+            </div>
+        </div>
+        <div class='footer-bottom'>
+          2026 Albarka Restaurant Services. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div class='modal' id='story-modal'><div class='modal-content'><span class='close-btn' onclick='closeModal(&apos;story-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span><h3>Our Story</h3><p>Founded with a passion for authentic local cuisine, Albarka started as a small family kitchen. Today, we are proud to serve hundreds of happy customers daily, bringing the true taste of tradition right to your table. We believe in fresh ingredients, bold flavors, and serving our community with a smile.</p></div></div>
+    <div class='modal' id='chef-modal'><div class='modal-content'><span class='close-btn' onclick='closeModal(&apos;chef-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span><h3>Chef&#39;s Specials</h3><p>Our Head Chef recommends trying our famous <strong>Gourmet Jollof Rice</strong> paired with perfectly grilled <strong>Spicy Asun</strong>.</p></div></div>
+    
+    <div class='modal' id='career-modal'>
+        <div class='modal-content'>
+            <span class='close-btn' onclick='closeModal(&apos;career-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span>
+            <h3>Join the Team</h3>
+            <p>We are always looking for passionate individuals. Apply directly via WhatsApp!</p>
+            <form onsubmit='sendJobApplication(event)'>
+                <label>Full Name</label><input id='job-name' required='required' type='text'/>
+                <label>Email</label><input id='job-email' required='required' type='email'/>
+                <label>Job Category</label>
+                <select id='job-category' required='required'>
+                    <option disabled='disabled' selected='selected' value=''>Select a role...</option>
+                    <option value='Chef / Cook'>Chef / Cook</option>
+                    <option value='Waitstaff / Customer Service'>Waitstaff / Customer Service</option>
+                    <option value='Delivery Rider'>Delivery Rider</option>
+                    <option value='Restaurant Manager'>Restaurant Manager</option>
+                </select>
+                <label>Why do you want to work with us?</label><textarea id='job-reason' required='required' rows='3'/>
+                <button class='submit-btn' style='background:#25D366' type='submit'>Send Application via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <div class='modal' id='contact-modal'><div class='modal-content'><span class='close-btn' onclick='closeModal(&apos;contact-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span><h3>Contact Us</h3><p><strong>Location:</strong> 123 Foodie Avenue, Lagos, Nigeria<br/><strong>Phone:</strong> +234 800 000 0000<br/><strong>Email:</strong> support@albarka.com<br/><strong>Working Hours:</strong> Monday to Sunday, 8:00 AM - 10:00 PM</p></div></div>
+    <div class='modal' id='refund-modal'><div class='modal-content'><span class='close-btn' onclick='closeModal(&apos;refund-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span><h3>Refund Policy</h3><p>We strive for 100% customer satisfaction. If your food arrives damaged or completely incorrect, please contact us via WhatsApp within 30 minutes of delivery with a photo. We will gladly process a replacement or a full refund.</p></div></div>
+    <div class='modal' id='privacy-modal'><div class='modal-content'><span class='close-btn' onclick='closeModal(&apos;privacy-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span><h3>Privacy Policy</h3><p>Your privacy is important to us. We only collect the necessary information (Name, Address, Phone Number) required to process and deliver your order. We will never sell your personal data to third-party marketers.</p></div></div>
+    <div class='modal' id='terms-modal'><div class='modal-content'><span class='close-btn' onclick='closeModal(&apos;terms-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span><h3>Terms of Service</h3><p>By placing an order with Albarka, you agree to provide accurate delivery information. Delivery times are estimates and may vary based on traffic and weather conditions. Payment is required upon delivery or pickup unless paid online.</p></div></div>
+    <div class='modal' id='offers-modal'><div class='modal-content'><span class='close-btn' onclick='closeModal(&apos;offers-modal&apos;)'><i aria-hidden='true' class='fa fa-times'/></span><h3>Current Offers</h3><p>🎉 <strong>Weekend Bonanza:</strong> Order above &#8358;15,000 and get free delivery!<br/>🥤 <strong>Combo Deal:</strong> Buy any 2 meals and get 2 free chilled drinks. Mention &quot;COMBO&quot; on WhatsApp.</p></div></div>
+
+    <script type='text/javascript'>
+    //<![CDATA[
+        const WHATSAPP_NUM = "2348062860423"; // CHANGE THIS TO YOUR NUMBER
+        const DELIVERY_FEE = 1000;
+
+        const menuItems = [
+            { id: 1, name: "Gourmet Jollof Rice", price: 4500, img: "https://images.immediate.co.uk/production/volatile/sites/2/2025/03/SmokyFlygerianJollofpreview-33961e7.jpg?auto=format&fit=crop&w=400&q=80" },
+            { id: 2, name: "Peppered Grilled Chicken", price: 3000, img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=400&q=80" },
+            { id: 3, name: "Signature Beef Burger", price: 5500, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80" },
+            { id: 4, name: "Classic Egusi & Semo", price: 4000, img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=400&q=80" },
+            { id: 5, name: "Fried Rice & Coleslaw", price: 4200, img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=400&q=80" },
+            { id: 6, name: "Spicy Asun & Plantain", price: 3800, img: "https://cookwithodunayor.com/wp-content/uploads/2025/01/How-to-Make-the-Best-Gizdodo-Peppered-Gizzard-and-Plantain-–-Easy-Step-by-Step-Recipe_cookwithodunayor.com_-scaled.jpg?auto=format&fit=crop&w=400&q=80" }
+        ];
+
+        const container = document.getElementById('food-container');
+        menuItems.forEach(item => {
+            container.innerHTML += `
+                <div class="food-card">
+                    <img src="${item.img}" alt="${item.name}" class="food-img">
+                    <div class="food-content">
+                        <div class="food-title">${item.name}</div>
+                        <div class="food-price">₦${item.price.toLocaleString()}</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="adj(${item.id}, -1)">-</button>
+                            <span id="q-${item.id}" style="font-weight:bold">0</span>
+                            <button class="qty-btn" onclick="adj(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        const quantities = {};
+        menuItems.forEach(i => quantities[i.id] = 0);
+
+        function adj(id, val) {
+            quantities[id] = Math.max(0, quantities[id] + val);
+            document.getElementById(`q-${id}`).innerText = quantities[id];
+            updateTotal();
+        }
+
+        function updateTotal() {
+            let subtotal = 0;
+            menuItems.forEach(i => subtotal += quantities[i.id] * i.price);
+            
+            const isDelivery = document.getElementById('mode').value === 'delivery';
+            document.getElementById('address-div').style.display = isDelivery ? 'block' : 'none';
+            
+            if(isDelivery && subtotal > 0) subtotal += DELIVERY_FEE;
+            document.getElementById('grand-total').innerText = subtotal.toLocaleString();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function sendOrder() {
+            const name = document.getElementById('cust-name').value;
+            if(!name) return alert("Enter your name");
+
+            let itemsTxt = "";
+            menuItems.forEach(i => {
+                if(quantities[i.id] > 0) itemsTxt += `- ${quantities[i.id]}x ${i.name}\n`;
+            });
+
+            if(!itemsTxt) return alert("Select at least one food");
+
+            const mode = document.getElementById('mode').value;
+            const addr = document.getElementById('cust-address').value;
+            const total = document.getElementById('grand-total').innerText;
+
+            let msg = `*ALBARKA ORDER*\n----------\n*Name:* ${name}\n*Items:*\n${itemsTxt}\n*Total:* ₦${total}\n*Mode:* ${mode}`;
+            if(mode === 'delivery') msg += `\n*Address:* ${addr}`;
+
+            window.open(`https://wa.me/${+2348062860423}?text=${encodeURIComponent(msg)}`);
+        }
+
+        function sendJobApplication(e) {
+            e.preventDefault(); 
+            const name = document.getElementById('job-name').value;
+            const email = document.getElementById('job-email').value;
+            const category = document.getElementById('job-category').value;
+            const reason = document.getElementById('job-reason').value;
+
+            let msg = `*ALBARKA JOB APPLICATION*\n----------\n*Name:* ${name}\n*Email:* ${email}\n*Position Applied For:* ${category}\n*Why I want to join:* ${reason}`;
+            
+            window.open(`https://wa.me/${+2348062860423}?text=${encodeURIComponent(msg)}`);
+            closeModal('career-modal'); 
+        }
+
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    //]]>
+    </script>
+
+    <div style='display:none;'>
+        <b:section id='hidden-section'/>
+    </div>
+</body>
+</html>
